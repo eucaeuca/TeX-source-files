@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{gauss}
+\begin{document}
+	\section{Table}
+	\subsection{different fontsize}
+	\begin{center}
+	\begin{tabular}{*{4}{|c}|}
+		\multicolumn{4}{c}{\textbf{\Huge ABC}}\\[6pt]\hline
+		\multicolumn{4}{|c|}{\rule[-8 pt]{0 pt}{30 pt}\hfill{\Huge ABC}\hfill\quad\vline\quad\hfill{\huge ABC}\hfill\quad\vline\quad{\footnotesize ABC}\hfill\mbox{}}\\\hline
+		{\Large ABC} & {\large ABC}& {\normalsize ABC} &{\tiny ABC}\\\hline\multicolumn{4}{|c|}{\small ABC \rule[-20pt]{0pt}{50pt}}\\\hline
+	\end{tabular}
+	\end{center}
+	
+	\subsection{customized table}
+		{\newsavebox{\mb}
+	\setlength{\fboxsep}{0pt}
+	\setlength{\fboxrule}{0.2pt}
+	\sbox{\mb}{\framebox[3.5mm]{\rule[-2pt]{0pt}{3.5mm}}}
+	\begin{center}
+	\begin{tabular}{|c|l|p{15mm}|}
+		\hline
+		.... & \hspace{\stretch{3.5}}\vline\ \,.....\ \vline\hspace*{\fill} & \\\cline{1-2}
+		.... & & \hfill .....\hfill\mbox{}\\\cline{1-2}
+		 & \rule[-2pt]{0pt}{15pt}................................... & \\\cline{2-2}
+		 \raisebox{3ex}[0pt]{....} & \rule[-2pt]{0pt}{20pt} & \\\hline
+		 ..... & \multicolumn{2}{c|}{}\\\hline ..&\multicolumn{2}{|l}{}\\\cline{1-1}
+	..&\multicolumn{2}{|l}{}\\\cline{1-1}\cline{3-3}
+		..... & &\\\cline{1-1}\cline{3-3}
+	\end{tabular}
+	\end{center}
+}
+\subsection{align w.r.t decimal point}
+\begin{center}
+	\begin{tabular}{cr@{.}l}
+		\multicolumn{3}{l}{quantity\qquad value}\\\hline\hline
+		\makebox[6em][c]{$u$} & 4 & 1631111\\
+		$v$ & 25 & 83422\\
+	\end{tabular}
+\end{center}
+\newpage
+\section{formula}
+\subsection{arguing}
+\begin{align*}
+(x+\mathrm{i}y)(x-\mathrm{i}y) &= x^2 +\mathrm{i} xy-\mathrm{i}xy-\mathrm{i}^2y^2\\
+&=x^2+y^2\\
+\intertext{use~$\mathrm{i}^2=-1$, we obtain}
+(x+\mathrm{i}y)^2&=x^2+2\mathrm{i}xy-y^2\\
+(x-\mathrm{i}y)^2&=x^2-2\mathrm{i}xy-y^2
+\end{align*}
+\begin{alignat*}{2}%(num(&)+1)/2
+y &= f(x)+g(x) &\qquad &\text{by (1)}\\
+&=-\sin x & &\text{since ..}
+\end{alignat*}
+\subsection{$\Longrightarrow$}
+\begin{equation*}
+\left\{\begin{aligned}
+a&=b+c \\d&=bb+cc
+\end{aligned}\right.
+\Longrightarrow
+\left\{\begin{aligned}
+D&=c+f\\
+A&=aa+bb
+\end{aligned}\right.
+\Longrightarrow
+\left\{\begin{aligned}
+g&=e+q\\
+s&=a+bb
+\end{aligned}\right.
+\end{equation*}
+\subsection{cases}
+\begin{equation*}
+f(x)=\begin{cases}
+1 & -1<x<1\\
+0 & \text{ other x}
+\end{cases}
+\end{equation*}
+\newpage
+\section{matrix}
+\subsection{inline}
+for matrix appeared in line, use 
+$\bigl(\begin{smallmatrix}
+1&1&1\\1&1&1\end{smallmatrix}
+\bigl)$
+\subsection{different matrix environment}
+$$
+\begin{matrix}
+\begin{matrix}
+1& 1\\1 & 1\end{matrix}&
+\begin{pmatrix}
+1&1\\1&1\end{pmatrix}&
+\begin{bmatrix}
+1&1\\1&1\end{bmatrix}\\[12pt]
+\begin{Bmatrix}
+1&1\\1&1
+\end{Bmatrix}&
+\begin{vmatrix}
+1&1\\1&1
+\end{vmatrix}&
+\begin{Vmatrix}
+1&1\\1&1
+\end{Vmatrix}
+\end{matrix}
+$$
+\subsection{...}
+$$
+\left(\begin{array}{cccc}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+& a_{22} & \cdots & a_{2n}\\
+& & \ddots & \vdots\\
+\multicolumn{2}{c}{\raisebox{1.3ex}[0pt]{\huge 0}}&&a_{nn}
+\end{array}\right)
+$$
+\subsection{gauss}
+\begin{align*}
+&\qquad\quad \left.
+\begin{gmatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{gmatrix}\right|
+\begin{gmatrix}
+1 \\
+1 \\
+1
+\rowops
+\add[\cdot(1)]21
+\end{gmatrix}
+& &\sim\quad\left.
+\begin{gmatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{gmatrix}\right|
+\begin{gmatrix}
+1 \\
+1 \\
+1
+\rowops
+\mult1{:(1)}
+\add[\cdot 1]12
+\end{gmatrix} \\[2em]
+&\quad\sim\quad
+\left.\begin{gmatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{gmatrix}\right|\
+\begin{gmatrix}
+1 \\
+1 \\
+1
+\rowops
+\add[\cdot (1)]10
+\end{gmatrix}
+& & \sim\quad
+\left.\begin{gmatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{gmatrix}\right|
+\begin{gmatrix}
+1 \\
+1 \\
+1
+\rowops
+\swap{0}{1}
+\end{gmatrix}
+\end{align*}
+
+\end{document}
