@@ -1,0 +1,52 @@
+\documentclass[12pt,twocolumn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper, left=.5in, right=.5in, top=.8in, bottom=.8in]{geometry}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{parskip}
+\newcounter{dayc}
+\setcounter{dayc}{1}
+\newcommand\myday[1]{\vspace{1ex plus .5ex minus .5ex}\par\bfseries\ttfamily\underline{#1:}\par\vspace{1ex plus .5ex minus .5ex}\stepcounter{dayc}}
+\newcounter{encounter}[dayc]
+\newcommand\entry{\par\stepcounter{encounter}\arabic{encounter}.\quad}
+\begin{document}\ttfamily
+\begin{center}
+\large\bfseries Schedule
+\end{center}
+\def\RealAnalysis{Real analysis 2 sections or 4 exercise problems.}
+\def\GreWords{Gre words. (following the book schedule)}
+\def\AlgebraArtin{Algebra Artin 3 sections or 5 exercise problems.}
+\def\Topologybook{}
+\def\LaTeXCompanion{\LaTeX{} companion 20 pages.}
+\def\Philreading{VR361 reading assignment.}
+\newcommand\coursereview[1]{#1 courseware review.}
+\newcommand\assignment[1]{Finish #1 assignment.}
+\myday{17-05-16(Tue)}
+\entry \AlgebraArtin
+\myday{17-05-17(Wed)}
+\entry \GreWords
+\entry \RealAnalysis
+\entry \AlgebraArtin
+\entry \LaTeXCompanion
+\myday{17-05-18(Thurs)}
+\entry \GreWords
+\entry \RealAnalysis
+\myday{17-05-19(Fri)}
+\entry \GreWords
+\entry \LaTeXCompanion
+\entry \coursereview{Ve475,Ve311}
+\myday{17-05-20(Sat)}
+\entry \GreWords
+\entry \RealAnalysis
+\entry \AlgebraArtin
+\myday{17-05-21(Sun)}
+\myday{17-05-22(Mon)}
+\myday{17-05-23(Tue)}
+\myday{17-05-24(Wed)}
+\myday{17-05-25(Thur)}
+\myday{17-05-26(Fri)}
+\myday{17-05-27(Sat)}
+\myday{17-05-28(Sun)}
+\myday{17-05-29(Mon)}
+\end{document}
